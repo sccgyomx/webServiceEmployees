@@ -5,6 +5,7 @@ import com.mx.webserviceemployees.service.WorkedHoursService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,7 +20,7 @@ public class apiWorkedHours {
     //http://localhost:9000/apiWorkedHours/listar
     @GetMapping("listar")
     public List<Object> lisar(){
-        return workedHoursService.listar();
+        return Collections.singletonList(workedHoursService.listar());
     }
 
     //http://localhost:9000/apiWorkedHours/guardar

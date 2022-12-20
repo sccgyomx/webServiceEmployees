@@ -105,8 +105,28 @@ public class EmployeeService implements ServiceInterface{
         return Collections.singletonList(employeeList);
     }
 
+    public Employee buscarId(int id){
+        return employeeDAO.findById(id).orElse(null);
+    }
+
     @Override
     public List<Object> listar() {
         return Collections.singletonList(employeeDAO.findAll());
+    }
+
+    public List<Employee> listarEmployee()
+    {
+        return (List<Employee>) employeeDAO.findAll();
+    }
+
+    public List<Employee> buscarAtributo(String atributo){
+        List<Employee> employeeList = new java.util.ArrayList<>(((List<Employee>) employeeDAO.findAll()).stream().filter(
+                employee ->
+                                employee.getName().equals(atributo)
+                                ||
+                                employee.getLastName().equals(atributo)
+        ).toList());
+        employeeList.sort(Comparator.comparing(Employee::getLastName));
+        return employeeList;
     }
 }

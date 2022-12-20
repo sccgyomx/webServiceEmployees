@@ -1,17 +1,15 @@
 package com.mx.webserviceemployees.service;
 
 
-import com.mx.webserviceemployees.entity.Gender;
+import com.mx.webserviceemployees.entity.Employee;
 import com.mx.webserviceemployees.entity.Job;
 import com.mx.webserviceemployees.dao.JobDAO;
 import com.mx.webserviceemployees.entity.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class JobService  implements ServiceInterface{
@@ -65,5 +63,9 @@ public class JobService  implements ServiceInterface{
     @Override
     public List<Object> listar() {
         return Collections.singletonList(jobDAO.findAll());
+    }
+
+    public List<Job> listarJobs(){
+        return (List<Job>) jobDAO.findAll();
     }
 }

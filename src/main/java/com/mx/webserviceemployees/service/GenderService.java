@@ -1,6 +1,7 @@
 package com.mx.webserviceemployees.service;
 
 import com.mx.webserviceemployees.dao.GenderDAO;
+import com.mx.webserviceemployees.entity.Employee;
 import com.mx.webserviceemployees.entity.Gender;
 import com.mx.webserviceemployees.entity.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,5 +87,8 @@ public class GenderService implements  ServiceInterface{
     @Override
     public List<Object> listar() {
         return Collections.singletonList(genderDAO.findAll());
+    }
+    public List<Gender> listarGenders() {
+        return (List<Gender>) genderDAO.findAll();
     }
 }

@@ -4,7 +4,6 @@ import com.mx.webserviceemployees.dao.EmployeeDAO;
 import com.mx.webserviceemployees.dao.EmployeeWorkedHoursDAO;
 import com.mx.webserviceemployees.entity.Employee;
 import com.mx.webserviceemployees.entity.EmployeeWorkedHours;
-import com.mx.webserviceemployees.entity.Gender;
 import com.mx.webserviceemployees.entity.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,4 +79,5 @@ public class WorkedHoursService implements ServiceInterface{
     public List<Object> listar() {
         return Collections.singletonList(eWH.findAll());
     }
+
 }

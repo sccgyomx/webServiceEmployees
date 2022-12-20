@@ -9,6 +9,7 @@ import com.mx.webserviceemployees.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class ApiEmployee {
     //http://localhost:9000/apiEmployees/listar
     @GetMapping("listar")
     public List<Object> listar(){
-        return employeeService.listar();
+        return Collections.singletonList(employeeService.listar());
     }
 
     //http://localhost:9000/apiEmployees/guardar
